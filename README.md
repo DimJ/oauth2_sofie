@@ -3,7 +3,7 @@ oauth2-server-php (extended for SOFIE project)
 
 Dolumentation for original library [complete documentation](https://bshaffer.github.io/oauth2-server-php-docs/)
 
-Implementation of the data for  WF-IoT (https://mm.aueb.gr/publications/2019-WF-IoT.pdf).
+Implementation of the models from  WF-IoT (https://mm.aueb.gr/publications/2019-WF-IoT.pdf).
 
 First unzip the OAuth2BlockChainKeys.zip and set this path to the following files:
 	- tokenScenario1.php
