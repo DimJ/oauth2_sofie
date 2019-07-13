@@ -1,8 +1,25 @@
-oauth2-server-php
-=================
+oauth2-server-php (extended for SOFIE project)
+==============================================
 
-[![Build Status](https://travis-ci.org/bshaffer/oauth2-server-php.svg?branch=master)](https://travis-ci.org/bshaffer/oauth2-server-php)
+Dolumentation for original library [complete documentation](https://bshaffer.github.io/oauth2-server-php-docs/)
 
-[![Total Downloads](https://poser.pugx.org/bshaffer/oauth2-server-php/downloads.png)](https://packagist.org/packages/bshaffer/oauth2-server-php)
+Implementation of the data for  WF-IoT (https://mm.aueb.gr/publications/2019-WF-IoT.pdf).
 
-View the [complete documentation](https://bshaffer.github.io/oauth2-server-php-docs/)
+First unzip the OAuth2BlockChainKeys.zip and set this path to the following files:
+	- tokenScenario1.php
+	- tokenScenario2.php
+	- cborToken.php
+
+Use CWT and JWS tokens with the OAuth2 protocol:
+
+- Scenario 1 with JWS
+curl -u theClient:thePassword http://localhost/oauth2_sofie/tokenScenario1.php -d 'grant_type=client_credentials'
+
+- Scenario 2 with JWS
+curl -u theClient:thePassword http://localhost/oauth2_sofie/tokenScenario2.php -d 'grant_type=client_credentials'
+
+- Scenario 1 with CWT
+curl http://localhost/oauth2_sofie/cborToken.php?typeOfScenario=scenario1 -d 'grant_type=client_credentials'
+
+- Scenario 2 with CWT
+curl http://localhost/oauth2_sofie/cborToken.php?typeOfScenario=scenario2 -d 'grant_type=client_credentials'
