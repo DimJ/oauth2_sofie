@@ -44,7 +44,7 @@
 		$encodedCWT_messageToServer = base64_encode($encryptedCWT);
 	    list($A, $IV, $e_thing_pop) = encryptAESGCM( $symetricKey, $pop );
 		$encodedEthingPop_messageToServer = base64_encode($e_thing_pop);
-	    $h = \OAuth2\Keccak256::hash($pop, 256);
+	    $h = \OAuth2\Keccak256::hash($s_key, 256);
 	    $restΟfΙnfo = \OAuth2\Keccak256::hash( ($encodedEthingPop_messageToServer.$pop.$encodedCWT_messageToServer), 256);
 	    $data = array
 	    (
@@ -53,7 +53,8 @@
 	    	"pop" => $pop,
 	    	"h" => $h,
 	    	"price" => $price,
-	    	"rest_of_info_hash" => $restΟfΙnfo
+	    	"rest_of_info_hash" => $restΟfΙnfo,
+	    	"s_key" => $s_key
 	    );
 	    print( json_encode($data) );
     }
@@ -67,14 +68,15 @@
 		$encodedEthingPop_messageToServer = base64_encode($e_thing_pop);
 	    $e_client_pop = publicKeyEncrypt( $pop, $publicKey );
 	    $encodedEclientPop_messageToServer = base64_encode($e_client_pop);
-	    $h = \OAuth2\Keccak256::hash($pop, 256);
+	    $h = \OAuth2\Keccak256::hash($s_key, 256);
 	    $data = array
 	    (
 	    	"e_s_token" => $encodedCWT_messageToServer,
 	    	"e_thing_pop" => $encodedEthingPop_messageToServer,
 	    	"e_client_pop" => $encodedEclientPop_messageToServer,
 	    	"h" => $h,
-	    	"price" => $price
+	    	"price" => $price,
+	    	"s_key" => $s_key
 	    );
 	    print( json_encode($data) );
     }
