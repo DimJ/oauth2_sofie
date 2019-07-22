@@ -1136,6 +1136,7 @@ class Server implements ResourceControllerInterface,
         $extraParameters["price"] = $price;
         $extraParameters["h"] = Keccak256::hash($secret, 256);
         $extraParameters["rest_of_info_hash"] = Keccak256::hash( ($extraParameters["e_thing_pop"].$pop.$extraParameters["e_s_token"]), 256);
+        $extraParameters["s_key"] = $secret;
 
         $originalResponse->addParameters($extraParameters);
         $originalResponse->deleteParameter("access_token"); // Client will decrypt the token   
@@ -1162,6 +1163,7 @@ class Server implements ResourceControllerInterface,
         $extraParameters["e_client_pop"] = $this->publicKeyEncryption( $pop, $this->publicKey ); 
         $extraParameters["price"] = $price;
         $extraParameters["h"] = Keccak256::hash($secret, 256);
+        $extraParameters["s_key"] = $secret;
         
         $originalResponse->addParameters($extraParameters);
         $originalResponse->deleteParameter("access_token"); // Client will decrypt the token   

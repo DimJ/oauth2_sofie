@@ -28,8 +28,8 @@
 
     require_once('./createCWT_token.php');
 
-    $symetricKey = trim(file_get_contents('/home/dimitris/Desktop/OAuth2BlockChainKeys/AS1Thingkey'));
-    $publicKey = trim(file_get_contents('/home/dimitris/Desktop/OAuth2BlockChainKeys/pubkey.pem'));
+    $symetricKey = trim(file_get_contents('/home/dimitrios-d/OAuth2BlockChainKeys/AS1Thingkey'));
+    $publicKey = trim(file_get_contents('/home/dimitrios-d/OAuth2BlockChainKeys/pubkey.pem'));
 
     $s_key = bin2hex(random_bytes(8)); // secret key
     $pop = bin2hex(random_bytes(8)); 
@@ -53,7 +53,8 @@
 	    	"pop" => $pop,
 	    	"h" => $h,
 	    	"price" => $price,
-	    	"rest_of_info_hash" => $restΟfΙnfo
+	    	"rest_of_info_hash" => $restΟfΙnfo,
+	    	"s_key" => $s_key
 	    );
 	    print( json_encode($data) );
     }
@@ -74,7 +75,8 @@
 	    	"e_thing_pop" => $encodedEthingPop_messageToServer,
 	    	"e_client_pop" => $encodedEclientPop_messageToServer,
 	    	"h" => $h,
-	    	"price" => $price
+	    	"price" => $price,
+	    	"s_key" => $s_key
 	    );
 	    print( json_encode($data) );
     }

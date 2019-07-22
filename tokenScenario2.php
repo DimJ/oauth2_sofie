@@ -24,8 +24,8 @@
     *  between the AS and the Thing. We also insert a public key for asymmetric enpryption of
     *  the Client with the SA  
     */
-    $AS1ThingKey = '/home/dimitris/Desktop/OAuth2BlockChainKeys/AS1Thingkey'; 
-    $publicKey = '/home/dimitris/Desktop/OAuth2BlockChainKeys/pubkey.pem';
+    $AS1ThingKey = '/home/dimitrios-d/OAuth2BlockChainKeys/AS1Thingkey'; 
+    $publicKey = '/home/dimitrios-d/OAuth2BlockChainKeys/pubkey.pem';
     $symetricKey = trim(file_get_contents($AS1ThingKey));
 
     $storage = new OAuth2\Storage\Memory(array(

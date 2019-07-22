@@ -22,7 +22,7 @@
     *  In the first scenario, we insert a key (AS1ThingKey) for symmetric encryption, 
     *  between the AS and the Thing. 
     */
-    $AS1ThingKey = '/home/dimitris/Desktop/OAuth2BlockChainKeys/AS1Thingkey'; 
+    $AS1ThingKey = '/home/dimitrios-d/OAuth2BlockChainKeys/AS1Thingkey'; 
     $symetricKey = trim(file_get_contents($AS1ThingKey));
 
 
